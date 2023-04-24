@@ -29,4 +29,24 @@ public class Journal {
 
         return journal;
     }
+
+    public void addMark(Student student, int mark) {
+        hashMap.get(student).add(mark);
+    }
+
+    public String toString() {
+        String result = "";
+
+        for (var group : groups) {
+            result += group.groupName + "\n";
+
+            for (var student : group.students) {
+                result += student.getFullName() + ": " + hashMap.get(student).toString() + "\n";
+            }
+
+            result += "\n";
+        }
+
+        return result;
+    }
 }
