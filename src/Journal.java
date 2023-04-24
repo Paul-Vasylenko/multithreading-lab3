@@ -19,7 +19,12 @@ public class Journal {
         if (size != groupSizes.length) return null;
         Journal journal = new Journal();
         for (int i = 0; i < size; i++) {
-            journal.groups.add(Group.generateGroup(groupSizes[i]));
+            Group group = Group.generateGroup(groupSizes[i]);
+            journal.groups.add(group);
+            for (var student : group.students) {
+                if(journal.hashMap.containsKey(student)) continue;
+                journal.hashMap.put(student, new ArrayList<>());
+            }
         }
 
         return journal;

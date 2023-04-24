@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class Group {
     public String groupName;
-    private List<Student> students;
+    public List<Student> students;
 
     public Group(String name) {
         this.groupName = name;
