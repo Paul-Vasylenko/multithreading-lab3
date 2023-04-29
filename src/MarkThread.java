@@ -9,12 +9,16 @@ public class MarkThread extends Thread {
 
     @Override
     public void run() {
-        for (var group : journal.groups) {
+        try{
+            for (var group : journal.groups) {
             for (var student : group.students) {
                 Random rand = new Random();
                 int mark = rand.nextInt(100) + 1;
                 journal.addMark(student, mark);
             }
         }
+    } catch(InterruptedException e) {
+
+    }
     }
 }
